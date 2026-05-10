@@ -2,9 +2,7 @@
 
 ## Build & Run
 
-- Make sure you have cocoapods installed
-- Run `pod install`
-- Open `ds4macos.xcworkspace` in Xcode (**not** `ds4macos.xcodeproj`)
+- Open `ds4macos.xcodeproj` in Xcode
 - Make sure your Signing & Capabilities settings are correct, change the bundle identifier if needed
 - Press run
 
