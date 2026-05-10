@@ -1,0 +1,24 @@
+{
+  "originHash" : "3f277237220450dd5bd8473b0f53a5394fe18711184d8755654ad5226126927d",
+  "pins" : [
+    {
+      "identity" : "joyconswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/remokeitel/JoyConSwift.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "89ac8822fd62e29e2640f8cbbd7353133d521d82"
+      }
+    },
+    {
+      "identity" : "swiftasyncsocket",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/remokeitel/SwiftAsyncSocket",
+      "state" : {
+        "branch" : "master",
+        "revision" : "574df40f52e8c3ca1fb99838e43e84cc21b765ae"
+      }
+    }
+  ],
+  "version" : 3
+}
