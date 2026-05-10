@@ -24,6 +24,7 @@
 		8E93D71725B22F4A00BEAFB6 /* ClientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E93D71625B22F4A00BEAFB6 /* ClientsViewModel.swift */; };
 		8E93D71D25B23A9800BEAFB6 /* ConnectedClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E93D71C25B23A9800BEAFB6 /* ConnectedClient.swift */; };
 		9EE90ABF29A026ED00EE37A4 /* ServerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE90ABE29A026ED00EE37A4 /* ServerViewModel.swift */; };
+		A656E1132FB082A100733048 /* ProController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A656E1122FB082A100733048 /* ProController.swift */; };
 		A681A42E2FB07706005CE708 /* SwiftAsyncSocket in Frameworks */ = {isa = PBXBuildFile; productRef = A681A42D2FB07706005CE708 /* SwiftAsyncSocket */; };
 		A681A4312FB07717005CE708 /* JoyConSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A681A4302FB07717005CE708 /* JoyConSwift */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,7 @@
 		8E93D71625B22F4A00BEAFB6 /* ClientsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsViewModel.swift; sourceTree = "<group>"; };
 		8E93D71C25B23A9800BEAFB6 /* ConnectedClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedClient.swift; sourceTree = "<group>"; };
 		9EE90ABE29A026ED00EE37A4 /* ServerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerViewModel.swift; sourceTree = "<group>"; };
+		A656E1122FB082A100733048 /* ProController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				8E03944625AF674F00F1DA1E /* Client.swift */,
 				8E93D71625B22F4A00BEAFB6 /* ClientsViewModel.swift */,
 				9EE90ABE29A026ED00EE37A4 /* ServerViewModel.swift */,
+				A656E1142FB0846E00733048 /* DSUControllersWithOverride */,
 			);
 			path = ds4macos;
 			sourceTree = "<group>";
@@ -173,6 +176,14 @@
 				8E93D71C25B23A9800BEAFB6 /* ConnectedClient.swift */,
 			);
 			path = Client;
+			sourceTree = "<group>";
+		};
+		A656E1142FB0846E00733048 /* DSUControllersWithOverride */ = {
+			isa = PBXGroup;
+			children = (
+				A656E1122FB082A100733048 /* ProController.swift */,
+			);
+			path = DSUControllersWithOverride;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,6 +322,7 @@
 				8E93D71D25B23A9800BEAFB6 /* ConnectedClient.swift in Sources */,
 				8E0E518225A6540200410DFF /* SettingsView.swift in Sources */,
 				8E93D71725B22F4A00BEAFB6 /* ClientsViewModel.swift in Sources */,
+				A656E1132FB082A100733048 /* ProController.swift in Sources */,
 				8E06487225A3BF0B00577AF8 /* ContentView.swift in Sources */,
 				8E03944725AF674F00F1DA1E /* Client.swift in Sources */,
 				8E0648A725A49D6300577AF8 /* DSUMessage.swift in Sources */,

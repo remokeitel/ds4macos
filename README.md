@@ -2,9 +2,7 @@
 
 ## Build & Run
 
-- Make sure you have cocoapods installed
-- Run `pod install`
-- Open `ds4macos.xcworkspace` in Xcode (**not** `ds4macos.xcodeproj`)
+- Open `ds4macos.xcodeproj` in Xcode
 - Make sure your Signing & Capabilities settings are correct, change the bundle identifier if needed
 - Press run
 
@@ -16,6 +14,17 @@ since simple button mapping works straight away with Dolphin.
 
 Although made for DS4 controllers, it is implemented using Swift GameController library.
 Thus in principle other types of controllers may work as well, but need to be compatible with MacOS already and only DS4 & DualSense controllers have been tested with this application.
+
+## Pro Controller
+
+This application is designed to also have motion data available from Pro Controllers in the Dolphin emulator on MacOS.
+If you aren't interested in using the accelerometer and gyro of these controler(s) then this application is not needed, 
+since simple button mapping works straight away with Dolphin.
+
+### Test environments
+
+- MacBook Air M4: using Swift GameController library works fine
+- Mac mini M2: using Swift GameController library not working, fallback to JoyConSwift library works fine
 
 ## Dolphin
 
@@ -38,6 +47,8 @@ implementation for Joy Con controllers at https://github.com/joaorb64/joycond-ce
 
 Also the specification of the DSU protocol at https://v1993.github.io/cemuhook-protocol/ is of
 great value
+
+Furthermore, huge thanks to [magicien](https://github.com/magicien) for writing the [JoyConSwift](https://github.com/magicien/JoyConSwift) library which this simple app heavily relies on, as fallback for Pro Controllers.
 
 ## Screenshots
 

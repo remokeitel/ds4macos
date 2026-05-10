@@ -5,6 +5,7 @@
 
 import Foundation
 import GameController
+import JoyConSwift
 
 
 @available(OSX 11.0, *)
@@ -71,6 +72,7 @@ class DSUController {
     var prevMotion: GCMotion?
     var controllerService: ControllerService?
     var gameController: GCController?
+    var joyConSwiftController: JoyConSwift.Controller?
     
     init(controllerService: ControllerService, gameController: GCController, slot: UInt8) {
         self.controllerService = controllerService
@@ -106,6 +108,30 @@ class DSUController {
         }
     }
     
+    func initJoyConSwiftController(_ joyConSwiftController: JoyConSwift.Controller) {
+        self.joyConSwiftController = joyConSwiftController
+        
+        joyConSwiftController.setPlayerLights(l1: self.slot == 1 ? .on : .off, l2: self.slot == 2 ? .on : .off, l3: self.slot == 3 ? .on : .off, l4: self.slot == 4 ? .on : .off)
+        
+        //joyConSwiftController.buttonPressHandler = { [weak self] _ in
+        //    self?.joyConSwiftInputValueChange()
+        //}
+        //joyConSwiftController.buttonReleaseHandler = { [weak self] _ in
+        //    self?.joyConSwiftInputValueChange()
+        //}
+        //joyConSwiftController.leftStickPosHandler = { pos in
+        //    self.joyConSwiftInputValueChange()
+        //}
+        //joyConSwiftController.rightStickPosHandler = { pos in
+        //    self.joyConSwiftInputValueChange()
+        //}
+        joyConSwiftController.sensorHandler = { [weak self] in
+            self?.joyConSwiftMotionValueChange()
+        }
+        
+        print("JoyConSwift motion fallback activated for slot \(self.slot)")
+    }
+    
     func inputValueChange(gamePad: GCExtendedGamepad, element: GCControllerElement) {
         self.updateControllerVariables()
     }
@@ -114,9 +140,17 @@ class DSUController {
         self.updateMicroControllerVariables()
     }
     
+    //func joyConSwiftInputValueChange() {
+    //    self.updateJoyConSwiftControllerVariables()
+    //}
+    
     func motionValueChange(motion: GCMotion) {
         self.updateControllerVariables()
         self.prevMotion = motion
+    }
+    
+    func joyConSwiftMotionValueChange() {
+        self.updateJoyConSwiftMotionVariables()
     }
     
     func updateControllerVariables() {
@@ -240,6 +274,12 @@ class DSUController {
         }
     }
     
+    //func updateJoyConSwiftControllerVariables() {
+    //}
+    
+    func updateJoyConSwiftMotionVariables() {
+    }
+    
     private func getUInt8fromFloat(num: Float) -> UInt8 {
         if num < 0 {
             return UInt8(bitPattern: Int8((num + 1) * 127))
@@ -252,7 +292,11 @@ class DSUController {
         return num * (180.0 / Double.pi)
     }
     
-    private func getUInt8arrayFromDouble(num: Double) -> [UInt8] {
+    func getUInt8arrayFromDouble(num: Double) -> [UInt8] {
+        return self.toByteArray(Float(num))
+    }
+    
+    func getUInt8arrayFromCGFloat(num: CGFloat) -> [UInt8] {
         return self.toByteArray(Float(num))
     }
     
@@ -355,7 +399,7 @@ class DSUController {
         return packet
     }
     
-    private func toByteArray<T>(_ value: T) -> [UInt8] {
+    func toByteArray<T>(_ value: T) -> [UInt8] {
         var value = value
         return withUnsafeBytes(of: &value) { Array($0) }
     }
